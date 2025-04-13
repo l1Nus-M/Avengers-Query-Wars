@@ -38,6 +38,7 @@ Relationships include:
 ## 🧱 Database Structure
 
 ### Example Tables
+Here's a quick glimpse of the database structure:
 - `book`: Stores information about books available for sale
 - `author`: Contains author details
 - `cust_order`: Stores customer orders
@@ -62,7 +63,7 @@ Sample data is provided in [sample_data.sql](/sample_data.sql) to test and demon
 ## 👥 User Roles & Access
 
 A sample MySQL user `TheCozyChapter_user0` is created with appropriate permissions to:
-- SELECT, INSERT, UPDATE, DELETE from all tables  
+- Perform 'SELECT', 'INSERT', 'UPDATE', 'DELETE' from all tables  
 - Assign and manage roles (if supported)
 
 SQL scripts available in: [user_roles.sql](/user_roles.sql)
