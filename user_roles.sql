@@ -8,3 +8,4 @@ FLUSH PRIVILEGES;
 CREATE ROLE 'read_only';
 GRANT SELECT ON BookStoreDB.* TO 'read_only';
 GRANT 'read_only' TO '<enter_user_name>'@'localhost';
+
