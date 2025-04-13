@@ -21,7 +21,7 @@
 
 LOCK TABLES `address` WRITE;
 /*!40000 ALTER TABLE `address` DISABLE KEYS */;
-INSERT INTO `address` VALUES (1,'123 Main St','Nairobi','00100',3),(2,'456 Abbey Rd','London','SW1A',2),('20 Ingram Street', 'Queens', '11377', 1),('10880 Malibu Point', 'Malibu', '90265', 2),('1 Wakandan Lane', 'Birnin Zana', '00001', 3),('456 Spy Alley', 'Moscow', '101000', 4);
+INSERT INTO `address` VALUES (1,'123 Main St','Nairobi','00100',3),(2,'456 Abbey Rd','London','SW1A',2),(3,'20 Ingram Street', 'Queens', '11377', 1),(4,'10880 Malibu Point', 'Malibu', '90265', 2),(5,'1 Wakandan Lane', 'Birnin Zana', '00001', 3),(6,'456 Spy Alley', 'Moscow', '101000', 4);
 /*!40000 ALTER TABLE `address` ENABLE KEYS */;
 UNLOCK TABLES;
 
