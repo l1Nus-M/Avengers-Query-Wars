@@ -44,13 +44,13 @@ Relationships include:
 - `order_line`: Stores individual items in an order
 - `shipping_method`: Lists available shipping options
 
-Full SQL table creation scripts are included in [schema.sql](/Avengers-Query-Wars/BookStore.sql)
+Full SQL table creation scripts are included in [schema.sql](/BookStore.sql)
 
 ---
 
 ## 🧪 Sample Data
 
-Sample data is provided in [sample_data.sql](/Avengers-Query-Wars/sample_data.sql) to test and demonstrate query functionality. This includes:
+Sample data is provided in [sample_data.sql](/sample_data.sql) to test and demonstrate query functionality. This includes:
 
 - Authors like George Orwell and Ngũgĩ wa Thiong’o  
 - Books such as *1984* and *Petals of Blood*  
@@ -65,7 +65,7 @@ A sample MySQL user `bookstore_user` is created with appropriate permissions to:
 - SELECT, INSERT, UPDATE, DELETE from all tables  
 - Assign and manage roles (if supported)
 
-SQL scripts available in: [user_roles.sql](/Avengers-Query-Wars/user_roles.sql)
+SQL scripts available in: [user_roles.sql](/user_roles.sql)
 
 ---
 
