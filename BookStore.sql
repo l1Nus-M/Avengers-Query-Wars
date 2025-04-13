@@ -514,18 +514,6 @@ FOREIGN KEY (status_id) REFERENCES order_status(status_id);
 <<<<<<< HEAD
 -- Users and Grant Permissions --
 /* Creating Users and Grant Permissions */
-CREATE USER 'Nontuthuzelo49'@'localhost' IDENTIFIED BY "@Ara6449";
-
-GRANT SELECT, INSERT, UPDATE, DELETE ON BookStoreDB.* TO 'Nontuthuzelo49'@'localhost';
-FLUSH PRIVILEGES;
-
-CREATE ROLE 'read_only';
-GRANT SELECT ON bookstoreDB.* TO 'read_only';
-GRANT 'read_only' TO 'Nontuthuzelo49'@'localhost';
-=======
-
--- Users and Grant Permissions --
-/* Creating Users and Grant Permissions */
 CREATE USER 'TheCozyChapter_user0'@'localhost' IDENTIFIED BY "Password4Who?";
 
 GRANT SELECT, INSERT, UPDATE, DELETE ON BookStoreDB.* TO 'TheCozyChapter_user0'@'localhost';
