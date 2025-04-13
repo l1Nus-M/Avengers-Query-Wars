@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 CREATE Database bookstoreDB;
 CREATE TABLE book (
     book_id INT AUTO_INCREMENT PRIMARY KEY, 
@@ -163,11 +164,79 @@ VALUES
 (4, 5, 1),
 (5, 6, 2);
 
+=======
+-- Database Project for The Cozy Chapter Bookstore --
+/* Create BookStoreDB */
+CREATE DATABASE BookStoreDB;
+USE BookStoreDB;
+
+
+-- Table Schema -- 
+/* 1. Book Table */
+CREATE TABLE book (
+    book_id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    ISBN VARCHAR(20),
+    publisher_id INT,
+    language_id INT,
+    price DECIMAL(10,2),
+    publication_year YEAR,
+    stock_quantity INT DEFAULT 0
+    );
+
+/* 2. Book Author Table */
+CREATE TABLE book_author (
+    book_id INT,
+    author_id INT,
+    PRIMARY KEY (book_id, author_id)
+);
+
+/* 3. Author Table */
+CREATE TABLE author (
+    author_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(100),
+    last_name VARCHAR(100)
+);
+
+/* 4. Book Language Table */
+CREATE TABLE book_language (
+    language_id INT AUTO_INCREMENT PRIMARY KEY,
+    language_name VARCHAR(100) NOT NULL
+);
+
+/* 5. Publisher Table */
+CREATE TABLE publisher (
+    publisher_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    publisherName VARCHAR(50),
+    country_id INT
+);
+
+/* 6. Customer Table */
+CREATE TABLE customer (
+    customer_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(100),
+    last_name VARCHAR(100),
+    email VARCHAR(150) UNIQUE,
+    phone_number VARCHAR(20)
+);
+
+/* 7. Customer Address Table */
+CREATE TABLE customer_address (
+    customer_id INT,
+    address_id INT,
+    status_id INT,
+    PRIMARY KEY (customer_id, address_id)
+);
+
+/* 8. Address Status Table */
+>>>>>>> 32aa166dc336bc4624ccd0cdd7e987f7317e286f
 CREATE TABLE address_status (
     status_id INT AUTO_INCREMENT PRIMARY KEY,
     status_name VARCHAR(50) NOT NULL
 );
 
+<<<<<<< HEAD
 INSERT INTO address_status (status_name)
 VALUES
 ('Primary'),
@@ -177,6 +246,9 @@ VALUES
 ('Shipping'),
 ('Office');
 
+=======
+/* 9. Address Table */
+>>>>>>> 32aa166dc336bc4624ccd0cdd7e987f7317e286f
 CREATE TABLE address (
     address_id INT AUTO_INCREMENT PRIMARY KEY,
     street VARCHAR(255),
@@ -185,6 +257,7 @@ CREATE TABLE address (
     country_id INT
 );
 
+<<<<<<< HEAD
 INSERT INTO address (street, city, postal_code, country_id)
 VALUES
 ('20 Ingram Street', 'Queens', '11377', 1),
@@ -194,11 +267,15 @@ VALUES
 ('177A Bleecker Street', 'New York', '10012', 2),
 ('890 Gamma Boulevard', 'Toronto', 'M5G 2C3', 5);
 
+=======
+/* 10. Country Table */
+>>>>>>> 32aa166dc336bc4624ccd0cdd7e987f7317e286f
 CREATE TABLE country (
     country_id INT AUTO_INCREMENT PRIMARY KEY,
     country_name VARCHAR(100) NOT NULL
 );
 
+<<<<<<< HEAD
 INSERT INTO country (country_name)
 VALUES
 ('United States'),
@@ -212,6 +289,9 @@ VALUES
 ('India'),
 ('Brazil');
 
+=======
+/* 11. Customer Order Table */
+>>>>>>> 32aa166dc336bc4624ccd0cdd7e987f7317e286f
 CREATE TABLE cust_order (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
     customer_id INT,
@@ -220,6 +300,7 @@ CREATE TABLE cust_order (
     shipping_method_id INT
 );
 
+<<<<<<< HEAD
 INSERT INTO cust_order (customer_id, order_date, status_id, shipping_method_id)
 VALUES
 (1, '2025-04-10 14:30:00', 1, 2),  -- Order by Customer 1, pending, using shipping method 2
@@ -229,6 +310,9 @@ VALUES
 (5, '2025-04-13 11:30:00', 1, 1);  -- Order by Customer 5, pending, using shipping method 1
 
 
+=======
+/* 12. Order Line Table */
+>>>>>>> 32aa166dc336bc4624ccd0cdd7e987f7317e286f
 CREATE TABLE order_line (
     order_id INT,
     book_id INT,
@@ -237,6 +321,7 @@ CREATE TABLE order_line (
     PRIMARY KEY (order_id, book_id)
 );
 
+<<<<<<< HEAD
 INSERT INTO order_line (order_id, book_id, quantity, price)
 VALUES
 (1, 1, 2, 10.69), 
@@ -245,12 +330,16 @@ VALUES
 (3, 4, 1, 14.99),
 (3, 5, 2, 17.20);
 
+=======
+/* 13. Shipping Method Table */
+>>>>>>> 32aa166dc336bc4624ccd0cdd7e987f7317e286f
 CREATE TABLE shipping_method (
     method_id INT AUTO_INCREMENT PRIMARY KEY,
     method_name VARCHAR(100),
     cost DECIMAL(10,2)
 );
 
+<<<<<<< HEAD
 INSERT INTO shipping_method (method_name, cost)
 VALUES
 ('Standard Shipping', 5.99),
@@ -259,6 +348,9 @@ VALUES
 ('Standard Shipping', 13.22),
 ('International Shipping', 19.99);
 
+=======
+/* 14. Order History Table */
+>>>>>>> 32aa166dc336bc4624ccd0cdd7e987f7317e286f
 CREATE TABLE order_history (
     history_id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT,
@@ -266,6 +358,7 @@ CREATE TABLE order_history (
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
+<<<<<<< HEAD
 INSERT INTO order_history (order_id, status_id, updated_at)
 VALUES
 (1, 1, '2025-04-10 14:30:00'),
@@ -273,77 +366,152 @@ VALUES
 (3, 3, '2025-04-13 10:00:00');
 
 
+=======
+/* 15. Order Status Table */
+>>>>>>> 32aa166dc336bc4624ccd0cdd7e987f7317e286f
 CREATE TABLE order_status (
     status_id INT AUTO_INCREMENT PRIMARY KEY,
     status_name VARCHAR(50)
 );
 
+<<<<<<< HEAD
 INSERT INTO order_status (status_name)
 VALUES
 ('Pending'), ('Shipped'), ('Delivered'), ('Cancelled');
 
 -- Foreign Keys --
 -- Book Author Table and Book Table 
+=======
+
+-- Foreign Keys --
+/* Book table and Publisher Table */
+ALTER TABLE book
+ADD CONSTRAINT fk_book_publisher
+FOREIGN KEY (publisher_id) REFERENCES publisher(publisher_id)
+ON DELETE RESTRICT ON UPDATE CASCADE;
+
+/* Book Table and Book Language Table */
+ALTER TABLE book
+ADD CONSTRAINT fk_book_book_language
+FOREIGN KEY (language_id) REFERENCES book_language(language_id);
+
+/* Book Author Table and Book Table */
+>>>>>>> 32aa166dc336bc4624ccd0cdd7e987f7317e286f
 ALTER TABLE book_author
 ADD CONSTRAINT fk_book_author_book
 FOREIGN KEY (book_id) REFERENCES book(book_id)
 ON DELETE RESTRICT ON UPDATE CASCADE;
 
+<<<<<<< HEAD
 -- Book Author Table and Author Table 
+=======
+/* Book Author Table and Author Table */
+>>>>>>> 32aa166dc336bc4624ccd0cdd7e987f7317e286f
 ALTER TABLE book_author
 ADD CONSTRAINT fk_book_author_author
 FOREIGN KEY (author_id) REFERENCES author(author_id);
 
+<<<<<<< HEAD
 -- Customer Address Table and Customer Table 
+=======
+/* Publisher Table and Country Table */
+ALTER TABLE publisher
+ADD CONSTRAINT fk_publisher_country
+FOREIGN KEY (country_id) REFERENCES country(country_id);
+
+/* Customer Address Table and Customer Table */
+>>>>>>> 32aa166dc336bc4624ccd0cdd7e987f7317e286f
 ALTER TABLE customer_address
 ADD CONSTRAINT fk_customer_address_customer
 FOREIGN KEY (customer_id) REFERENCES customer(customer_id);
 
+<<<<<<< HEAD
 -- Customer Address Table and Address Table 
+=======
+/* Customer Address Table and Address Table */
+>>>>>>> 32aa166dc336bc4624ccd0cdd7e987f7317e286f
 ALTER TABLE customer_address
 ADD CONSTRAINT fk_customer_address_address
 FOREIGN KEY (address_id) REFERENCES address(address_id);
 
+<<<<<<< HEAD
 -- Address Table and Country Table 
+=======
+/* Customer Address Table and Address Status Table */
+ALTER TABLE customer_address
+ADD CONSTRAINT fk_customer_address_address_status
+FOREIGN KEY (status_id) REFERENCES address_status(status_id);
+
+/* Address Table and Country Table */
+>>>>>>> 32aa166dc336bc4624ccd0cdd7e987f7317e286f
 ALTER TABLE address
 ADD CONSTRAINT fk_address_country
 FOREIGN KEY (country_id) REFERENCES country(country_id);
 
+<<<<<<< HEAD
 -- Customer Order Table and Customer Table 
+=======
+/* Customer Order Table and Customer Table */
+>>>>>>> 32aa166dc336bc4624ccd0cdd7e987f7317e286f
 ALTER TABLE cust_order
 ADD CONSTRAINT fk_customer_order_customer
 FOREIGN KEY (customer_id) REFERENCES customer(customer_id);
 
+<<<<<<< HEAD
 -- Customer Order Table and Order Status Table 
+=======
+/* Customer Order Table and Order Status Table */
+>>>>>>> 32aa166dc336bc4624ccd0cdd7e987f7317e286f
 ALTER TABLE cust_order
 ADD CONSTRAINT fk_customer_order_order_status
 FOREIGN KEY (status_id) REFERENCES order_status(status_id);
 
+<<<<<<< HEAD
 -- Customer Order Table and Shipping Method Table 
+=======
+/* Customer Order Table and Shipping Method Table */
+>>>>>>> 32aa166dc336bc4624ccd0cdd7e987f7317e286f
 ALTER TABLE cust_order
 ADD CONSTRAINT fk_customer_order_shipping_method
 FOREIGN KEY (shipping_method_id) REFERENCES shipping_method(method_id);
 
+<<<<<<< HEAD
 -- Order Line Table and Customer Order Table 
+=======
+/* Order Line Table and Customer Order Table */
+>>>>>>> 32aa166dc336bc4624ccd0cdd7e987f7317e286f
 ALTER TABLE order_line
 ADD CONSTRAINT fk_order_line_customer_order
 FOREIGN KEY (order_id) REFERENCES cust_order(order_id);
 
+<<<<<<< HEAD
 -- Order Line Table and Book Table 
+=======
+/* Order Line Table and Book Table */
+>>>>>>> 32aa166dc336bc4624ccd0cdd7e987f7317e286f
 ALTER TABLE order_line
 ADD CONSTRAINT fk_order_line_book
 FOREIGN KEY (book_id) REFERENCES book(book_id);
 
+<<<<<<< HEAD
 -- Order History Table and Customer Order Table 
+=======
+/* Order History Table and Customer Order Table */
+>>>>>>> 32aa166dc336bc4624ccd0cdd7e987f7317e286f
 ALTER TABLE order_history
 ADD CONSTRAINT fk_order_history_customer_order
 FOREIGN KEY (order_id) REFERENCES cust_order(order_id);
 
+<<<<<<< HEAD
 -- Order History Table and Order Status Table 
+=======
+/* Order History Table and Order Status Table */
+>>>>>>> 32aa166dc336bc4624ccd0cdd7e987f7317e286f
 ALTER TABLE order_history
 ADD CONSTRAINT fk_order_history_order_status
 FOREIGN KEY (status_id) REFERENCES order_status(status_id);
 
+<<<<<<< HEAD
 -- Users and Grant Permissions --
 /* Creating Users and Grant Permissions */
 CREATE USER 'Nontuthuzelo49'@'localhost' IDENTIFIED BY "@Ara6449";
@@ -354,3 +522,16 @@ FLUSH PRIVILEGES;
 CREATE ROLE 'read_only';
 GRANT SELECT ON bookstoreDB.* TO 'read_only';
 GRANT 'read_only' TO 'Nontuthuzelo49'@'localhost';
+=======
+
+-- Users and Grant Permissions --
+/* Creating Users and Grant Permissions */
+CREATE USER 'TheCozyChapter_user0'@'localhost' IDENTIFIED BY "Password4Who?";
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON BookStoreDB.* TO 'TheCozyChapter_user0'@'localhost';
+FLUSH PRIVILEGES;
+
+CREATE ROLE 'read_only';
+GRANT SELECT ON BookStoreDB.* TO 'read_only';
+GRANT 'read_only' TO 'TheCozyChapter_user0'@'localhost';
+>>>>>>> 32aa166dc336bc4624ccd0cdd7e987f7317e286f
