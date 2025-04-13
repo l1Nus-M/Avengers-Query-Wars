@@ -31,7 +31,7 @@ Relationships include:
 - One-to-many: publishers → books, customers → orders, orders → order_lines
 
 📌 View the ERD:  
-![Bookstore ERD](./Aveengers-Query-Wars/BookStore.drawio)
+[Bookstore ERD](/ERD.png)
 
 ---
 
@@ -61,7 +61,7 @@ Sample data is provided in [sample_data.sql](/sample_data.sql) to test and demon
 
 ## 👥 User Roles & Access
 
-A sample MySQL user `bookstore_user` is created with appropriate permissions to:
+A sample MySQL user `TheCozyChapter_user0` is created with appropriate permissions to:
 - SELECT, INSERT, UPDATE, DELETE from all tables  
 - Assign and manage roles (if supported)
 
