@@ -1,7 +1,7 @@
 -- Database Project for The Cozy Chapter Bookstore --
 /* Create BookStoreDB */
-CREATE DATABASE BookStoreDB;
-USE BookStoreDB;
+CREATE DATABASE CozyChapterDB;
+USE CozyChapterDB;
 
 
 -- Table Schema -- 
@@ -215,5 +215,5 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON BookStoreDB.* TO 'TheCozyChapter_user0'@
 FLUSH PRIVILEGES;
 
 CREATE ROLE 'read_only';
-GRANT SELECT ON BookStoreDB.* TO 'read_only';
+GRANT SELECT ON CozyChapterDB.* TO 'read_only';
 GRANT 'read_only' TO 'TheCozyChapter_user0'@'localhost';
