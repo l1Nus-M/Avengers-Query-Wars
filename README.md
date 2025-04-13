@@ -1,5 +1,3 @@
-# Avengers: Query Wars
-
 # 📚 BookStore MySQL Database Project
 
 This project simulates a real-world **Bookstore Management System** using MySQL. It covers essential database design principles, table creation, data loading, and access control. Additionally, an Entity-Relationship Diagram (ERD) is provided to visualize the data relationships.
@@ -32,6 +30,9 @@ Relationships include:
 - Many-to-many: books ↔ authors, customers ↔ addresses
 - One-to-many: publishers → books, customers → orders, orders → order_lines
 
+📌 View the ERD:  
+![Bookstore ERD](./Aveengers-Query-Wars/BookStore.drawio)
+
 ---
 
 ## 🧱 Database Structure
@@ -43,13 +44,56 @@ Relationships include:
 - `order_line`: Stores individual items in an order
 - `shipping_method`: Lists available shipping options
 
+Full SQL table creation scripts are included in [schema.sql](./Avengers-Query-Wars/BookStore.sql)
+
+---
+
+## 🧪 Sample Data
+
+Sample data is provided in [sample_data.sql](./Avengers-Query-Wars/sample_data.sql) to test and demonstrate query functionality. This includes:
+
+- Authors like George Orwell and Ngũgĩ wa Thiong’o  
+- Books such as *1984* and *Petals of Blood*  
+- Sample customers and their addresses  
+- Example orders and shipping records
+
 ---
 
 ## 👥 User Roles & Access
 
-A sample MySQL user `TheCozyChapter_user0` is created with appropriate permissions to:
+A sample MySQL user `bookstore_user` is created with appropriate permissions to:
 - SELECT, INSERT, UPDATE, DELETE from all tables  
 - Assign and manage roles (if supported)
 
+SQL scripts available in: [user_roles.sql](./Avengers-Query-Wars/user_roles.sql)
+
 ---
+
+## 🧪 Sample Queries
+
+Examples of SQL queries you can run:
+
+```sql
+-- Top 5 books by stock
+SELECT title, stock_quantity FROM book ORDER BY stock_quantity DESC LIMIT 5;
+
+-- All orders placed by customer "Alice Kamau"
+SELECT o.order_id, o.order_date, os.status_name
+FROM cust_order o
+JOIN order_status os ON o.status_id = os.status_id
+JOIN customer c ON o.customer_id = c.customer_id
+WHERE c.first_name = 'Alice' AND c.last_name = 'Kamau';
+```
+
+🚀 Getting Started
+1. Clone the repository:
+   
+   git clone https://github.com/yourusername/Bookstore-Database.git
+
+2. Load BookStore.sql into your MySQL environment.
+
+3. Import sample_data.sql for testing.
+
+4. Run queries and test your database!
+        
 
