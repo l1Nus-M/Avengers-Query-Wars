@@ -64,7 +64,7 @@ A sample MySQL user `TheCozyChapter_user0` is created with appropriate permissio
 - SELECT, INSERT, UPDATE, DELETE from all tables  
 - Assign and manage roles (if supported)
 
-SQL scripts available in: [user_roles.sql](./sql/BookStore.sql)
+SQL scripts available in: [user_roles.sql](./Avengers-Query-Wars/BookStore.sql)
 
 ---
 
